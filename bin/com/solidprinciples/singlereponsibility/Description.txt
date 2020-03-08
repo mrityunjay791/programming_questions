@@ -1,0 +1,12 @@
+
+Every class should have a single responsibility, and that responsibility should be entirely encapsulated by the class.
+There should never be more than one reason for a class to change.
+
+The Single Responsibility Principle represents the “S” of the five SOLID Principles of object-oriented programming to write well-designed code that is more readable, maintainable,
+and easier to upgrade and modify.
+
+
+Note that in the above code, the responsibility of EmailService is separated 
+from UserService so now UserService does its re
+
+Responsibility related user operations and EmailService does it's responsibility related email operations.

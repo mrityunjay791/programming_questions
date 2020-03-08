@@ -1,0 +1,22 @@
+Derived types must be completely substitutable for their base types.
+
+The Liskov Substitution Principle represents the “L” of the five SOLID Principles of object-oriented programming to write well-designed code that is more readable, maintainable,
+ and easier to upgrade and modify.
+ 
+ 
+Rules of Thumb?=====
+This principle applies to inheritance hierarchies and is just an extension of the Open Close Principle.
+It means that we must make sure that new derived classes are extending the base classes without changing their original behavior. Basically, derived classes should never do less than their base class.
+If a subtype of the supertype does something that the client of the supertype does not expect, then this is in violation of LSP. Imagine a derived class throwing an exception that the superclass does not throw, or if a derived class has some unexpected side effects.
+ One has to consider that how the client programs are using the class hierarchy. Sometimes code refactoring is required to fix identified LSP violations.
+ 
+ 
+ 
+ 
+ Good Code Design
+Let's refactor the code to make "good" design using LSP?
+Refer "MediaPlayer.java" super class and its sub class "AudioMediaPlayer.java" having play audio ability
+Refer "VideoMediaPlayer.java" extends "MediaPlayer.java" and adds play video ability
+Refer "DivMediaPlayer.java", "VlcMediaPlayer.java". Both extends "VideoMediaPlayer.java" for play audio and video ability.
+Refer "WinampMediaPlayer.java" which extends "AudioMediaPlayer.java" for play audio ability.
+So client program can substitute "VideoMediaPlayer.java" super type with "DivMediaPlayer.java" or "VlcMediaPlayer.java", but not with "WinampMediaPlayer.java"
