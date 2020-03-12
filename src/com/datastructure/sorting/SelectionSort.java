@@ -8,6 +8,12 @@ package com.datastructure.sorting;
  */
 public class SelectionSort {
 
+	/**
+	 * This method is used for sorting array.
+	 * 
+	 * @param arr
+	 * @return
+	 */
 	private static int[] selectionSort(int arr[]) {
 		for (int i = 0; i < arr.length - 1; i++) {
 			int minIndex = i;
