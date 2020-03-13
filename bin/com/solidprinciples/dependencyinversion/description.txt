@@ -1,0 +1,12 @@
+
+High-level modules should not depend on low-level modules. Both should depend on abstractions.
+Abstractions should not depend on details. Details should depend on abstractions.
+
+Benefits
+Loose Coupling - don't ask for dependency it will be provided to you by the framework. 
+This has been very well implemented in Spring framework, the beauty of this design principle is that any class which is injected by DI framework is easy to test with the mock object and easier to maintain because object creation code is centralized in the framework and client code is not littered with that.
+
+
+Note that in the above code example, CustomerDaoImpl class depends on the DataSource interface, not the concrete class. 
+Now due to abstraction Client can change implementation at any time. 
+For example, now client using MySQL and in future client might interested use Oracle then simply provide the Oracle implementation as Constructor to CustomerDaoImpl.

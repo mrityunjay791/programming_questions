@@ -1,6 +1,0 @@
-Open Closed Principle Example
-Let's take the same example of Database Connection Provider, ideal we can have a connection to any RDBMS data source as per our requirements.
-Let's design or develop source code using this design principle.
-Code for the interface so first create IConnetionProvider interface and create a separate class to implement this interface for each database connection like H2ConnectionProvider, MySQLConnectionProvider.
-In future, if Client wants to connect MS-Server or Oracle then we need to create the class like MsServerConnectionProvider or OracleConnectionProvider and just implement IConnectionProviderinterface that's it.
-we are not modifying existing code here, we are just extending as per our requirement.
