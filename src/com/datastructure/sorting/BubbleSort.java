@@ -23,12 +23,14 @@ public class BubbleSort {
 					arr[j+1] = temp;
 				}
 			}
+			
+			System.out.println("hi..");
 		}
 		
 		return arr;
 	}
 	public static void main(String[] args) {
-		int arr[] = {8, 34, 2, 4, 1, 12};
+		int arr[] = {13, 4, 7};
 		System.out.println("Bubble sort: ");
 		arr = bubbleSort(arr);
 		

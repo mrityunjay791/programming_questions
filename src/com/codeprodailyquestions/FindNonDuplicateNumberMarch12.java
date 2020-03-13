@@ -14,7 +14,7 @@ package com.codeprodailyquestions;
  * @author mrityunjaykumar
  *
  */
-public class FindNonDuplicateNumber {
+public class FindNonDuplicateNumberMarch12 {
 	
 	/**
 	 * Finding non repeated number using XOR operator.
