@@ -1,5 +1,7 @@
 package com.codeprodailyquestions;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -15,38 +17,53 @@ import java.util.Scanner;
  *
  */
 public class LongestSubStringWithoutRepeatingCharacter {
-	// NOT SOLVED...
+
+	private static boolean check(String str, int low, int high) {
+
+		Map<Character, Integer> map = new HashMap<>();
+
+		for (int i = low; i <= high; i++) {
+
+			if (map.containsKey(str.charAt(i))) {
+				return false;
+			} else {
+				map.put(str.charAt(i), 1);
+			}
+		}
+
+		return true;
+
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
 		String str = sc.nextLine();
 
-		boolean isCharRepeated = false;
 		int max = 0;
+		int startIndex = 0;
 		int len = str.length();
+		
+		if (len < 2) {
+			System.out.println(str);
+			sc.close();
+			return;
+			
+		}
 		for (int i = 0; i < len; i++) {
 
-			isCharRepeated = false;
-			int j = i + 1;
-			for (j = i + 1; j < len; j++) {
-				if (str.charAt(i) == str.charAt(j)) {
-					isCharRepeated = true;
-					if (max > (j - i)) {
-						max = j - i;
-					}
-					break;
-				}
-			}
+			for (int j = i + 1; j < len; j++) {
+				boolean isValid = check(str, i, j);
 
-			if (!isCharRepeated) {
-				System.out.println(max+" "+ i +" "+ j);
-				if (max > (j - i)) {
+				if (isValid && j - i > max) {
 					max = j - i;
+					startIndex = i;
 				}
 			}
 		}
 
-		System.out.println(max);
+		System.out.println(str.substring(startIndex, startIndex + max + 1));
+		System.out.println(max + 1);
 		sc.close();
 	}
 
