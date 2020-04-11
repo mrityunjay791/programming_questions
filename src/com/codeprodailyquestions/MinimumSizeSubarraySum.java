@@ -18,33 +18,41 @@ public class MinimumSizeSubarraySum {
 		int min = arr.length;
 		int l = 0;
 		int h = 0;
+		boolean isFound = false;
 		for(int i = 0; i < arr.length; i++) {
 			int sum = 0;
 			int j = i;
 			for( ; j < arr.length; j++) {
 				sum += arr[j];
 				if(sum >= s) {
+					isFound = true;
 					break;
 				}
 			}
-			if(min >= j - i + 1) {
+			
+			
+			if(min > j - i + 1 && isFound) {
 				min = j - i + 1;
 				l = i;
 				h = j;
 			}
+			
+			
 		}
+		
+		
 		System.out.print("[ ");
-		for(int k = l - 1; k < h; k++) {
+		for(int k = l; k <= h && isFound; k++) {
 			System.out.print(arr[k]+" ");
 		}
 		System.out.print("]");
 		
-		return min;
+		return !isFound ? 0 : min;
 	}
 
 	public static void main(String[] args) {
 		int arr[] = {2,3,1,2,4,3};
-		int s = 7;
+		int s = 60;
 		System.out.println("\nMinimum length: "+findSubArray(arr, s));
 		
 	}
