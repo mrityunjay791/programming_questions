@@ -16,10 +16,24 @@ public class ValidateBinarySearchTree {
 
 	}
 
+	/**
+	 * Wrapper method.
+	 * 
+	 * @param root
+	 * @return
+	 */
 	private static boolean isBST(TreeNode root) {
 		return testBinarySearchTree(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
 	}
 
+	/**
+	 * Validating binary search tree.
+	 * 
+	 * @param root
+	 * @param min
+	 * @param max
+	 * @return
+	 */
 	private static boolean testBinarySearchTree(TreeNode root, int min, int max) {
 		if (root == null) {
 			return true;
@@ -33,6 +47,14 @@ public class ValidateBinarySearchTree {
 				&& testBinarySearchTree(root.right, root.data + 1, max);
 	}
 	
+	/**
+	 * Validating binary search tree.
+	 * 
+	 * @param root
+	 * @param left
+	 * @param right
+	 * @return
+	 */
 	private static boolean testBinarySearchTreeOtherMethod(TreeNode root, TreeNode left, TreeNode right) {
 		if (root == null) {
 			return true;
