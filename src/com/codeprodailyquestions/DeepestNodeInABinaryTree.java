@@ -73,13 +73,15 @@ public class DeepestNodeInABinaryTree {
 		tree.root.left = new TreeNodeEx('b');
 		tree.root.right = new TreeNodeEx('c');
 		tree.root.left.left = new TreeNodeEx('d');
-		tree.root.left.left.left = new TreeNodeEx('e');
+		tree.root.left.right = new TreeNodeEx('e');
+		tree.root.right.left = new TreeNodeEx('f');
+		tree.root.right.right = new TreeNodeEx('g');
 		
 		int height = findHeight(tree.root);
 		System.out.println("Height: "+ height);
 		
 		System.out.println("Deepest Node: ");
-		findDeepestNode(tree.root, height);
+		findDeepestNode(tree.root, 2);
 	}
 
 }
