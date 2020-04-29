@@ -97,6 +97,34 @@ public class LinkedListImplementations {
 		
 		return head;
 	}
+	
+	
+	public static void modifyList(Node tempHead, int count, int len) {
+		if(tempHead == null) {
+			return;
+		}
+		
+		modifyList(tempHead.next,count - 1,len);
+		System.out.println(tempHead.data + " => "+ count);
+		if(count <= len/2) {
+			
+			updateValue(tempHead, count);
+		}
+		
+	}
+	
+	private static void updateValue(Node temp, int pos) {
+		Node tempHead = head;
+		Node curr = null;
+		if(pos == 1) {
+			tempHead.data = temp.data - head.data;
+			curr = tempHead.next;
+			return;
+		}
+		
+		curr.data = temp.data - curr.data;
+		curr = curr.next;
+	}
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -108,8 +136,8 @@ public class LinkedListImplementations {
 		}
 		
 		showList();
-		
-		removeElement(56);
+		modifyList(head, n, n);
+//		removeElement(56);
 //		reverseList();
 		System.out.println();
 		showList();

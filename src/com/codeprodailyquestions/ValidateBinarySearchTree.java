@@ -15,6 +15,7 @@ public class ValidateBinarySearchTree {
 		traverse(root.right);
 
 	}
+	
 
 	/**
 	 * Wrapper method.
@@ -90,7 +91,6 @@ public class ValidateBinarySearchTree {
 		}
 		
 		System.out.println(testBinarySearchTreeOtherMethod(root, null, null));
-
 	}
 
 }
