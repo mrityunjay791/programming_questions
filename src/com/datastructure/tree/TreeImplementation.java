@@ -27,7 +27,7 @@ public class TreeImplementation {
 	 * @param node
 	 * @param key
 	 */
-	private static TreeNode insertNode(TreeNode root, int key) {
+	public static TreeNode insertNode(TreeNode root, int key) {
 		if(root == null) {
 			return new TreeNode(key);
 		}
@@ -63,7 +63,7 @@ public class TreeImplementation {
 	 * 
 	 * @param root
 	 */
-	private static void treeTraverse(TreeNode root) {
+	public static void treeTraverse(TreeNode root) {
 
 		if (root == null) {
 			return;
@@ -81,7 +81,7 @@ public class TreeImplementation {
 	 * @param root
 	 * @param data
 	 */
-	private static void deleteNode(TreeNode root, int data) {
+	public static void deleteNode(TreeNode root, int data) {
 		Queue<TreeNode> q = new LinkedList<TreeNode>();
 		q.add(root);
 		if(root == null) {
@@ -119,7 +119,7 @@ public class TreeImplementation {
 	 * @param node
 	 * @param data
 	 */
-	private static void deleteDeepestNode(TreeNode node, int data) {
+	public static void deleteDeepestNode(TreeNode node, int data) {
 		Queue<TreeNode> q = new LinkedList<TreeNode>();
 		q.add(node);
 		if(node == null) {
