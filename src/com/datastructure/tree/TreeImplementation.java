@@ -27,18 +27,17 @@ public class TreeImplementation {
 	 * @param node
 	 * @param key
 	 */
-	private static TreeNode insertNode(TreeNode node, int key) {
-		if(node == null) {
+	private static TreeNode insertNode(TreeNode root, int key) {
+		if(root == null) {
 			return new TreeNode(key);
 		}
 		
 		Queue<TreeNode> q = new LinkedList<TreeNode>();
-		q.add(node);
-		
+		q.add(root);
+		TreeNode node = null;
 		while (!q.isEmpty()) {
 			node = q.peek();
 			q.remove();
-
 			if (node.left == null) {
 				node.left = new TreeNode(key);
 				break;
@@ -75,6 +74,85 @@ public class TreeImplementation {
 		treeTraverse(root.right);
 
 	}
+	
+	/**
+	 * Used to find node to be deleted..
+	 * 
+	 * @param root
+	 * @param data
+	 */
+	private static void deleteNode(TreeNode root, int data) {
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.add(root);
+		if(root == null) {
+			return;
+		}
+		TreeNode temp = null;
+		TreeNode node = null;
+		while(!q.isEmpty()) {
+			node = q.peek();
+			q.remove();
+			if(node.data == data) {
+				temp = node;
+			}
+				
+			if(node.left != null) {
+				q.add(node.left);
+			}
+			
+			if(node.right != null) {
+				q.add(node.right);
+			}
+		}
+		
+		if(temp != null) {
+			int d = node.data;
+			deleteDeepestNode(root, d);
+			temp.data = d;
+		}
+	}
+	
+	
+	/**
+	 * Used for deleting deepest Node.
+	 * 
+	 * @param node
+	 * @param data
+	 */
+	private static void deleteDeepestNode(TreeNode node, int data) {
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.add(node);
+		if(node == null) {
+			return;
+		}
+		while(!q.isEmpty()) {
+			node = q.peek();
+			q.remove();
+			if(node.data == data) {
+				node = null;
+				break;
+			}
+				
+			if(node.left != null && node.left.data == data) {
+				node.left = null;
+				break;
+			} else {
+				q.add(node.left);
+
+			}
+			
+			if(node.right != null && node.right.data == data) {
+				node.right = null;
+				break;
+			} else {
+				q.add(node.right);
+
+			}
+		}
+		
+	}
+	
+
 
 	public static void main(String[] args) {
 
@@ -89,8 +167,16 @@ public class TreeImplementation {
 		tree.root.right.right = new TreeNode(7);
 		treeTraverse(tree.root);
 		System.out.println();
-		insertNode(tree.root, 40);
+		insertNode(tree.root, 45);
 		treeTraverse(tree.root);
+		System.out.println();
+		deleteNode(tree.root, 4);
+		treeTraverse(tree.root);
+		System.out.println();
+		insertNode(tree.root, 50);
+		deleteNode(tree.root, 45);
+		treeTraverse(tree.root);
+		
 //		System.out.println("\n" + tree.root.left.left.left.data);
 	}
 
