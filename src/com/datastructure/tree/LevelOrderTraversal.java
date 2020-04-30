@@ -146,6 +146,8 @@ public class LevelOrderTraversal {
 		printLevelByLevel(tree.root);
 		System.out.println();
 		printNodesByUsingQueue(tree.root);
+		System.out.println();
+		printNodeByLevel(tree.root, 3);
 
 	}
 
