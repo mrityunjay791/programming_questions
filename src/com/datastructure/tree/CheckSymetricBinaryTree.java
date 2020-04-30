@@ -63,6 +63,17 @@ public class CheckSymetricBinaryTree {
 		return false;
 	}
 	
+	private static void mirrorImage(TreeNode root) {
+		if(root == null) {
+			return;
+		}
+		
+		mirrorImage(root.left);
+		mirrorImage(root.right);
+		TreeNode temp = root.left;
+		root.left = root.right;
+		root.right = temp;
+	}
 	
 	public static void main(String[] args) {
 		CheckSymetricBinaryTree tree = new CheckSymetricBinaryTree();
@@ -83,7 +94,8 @@ public class CheckSymetricBinaryTree {
 		} else {
 			System.out.println("\nTree is NOT Symmetric..!!");
 		}
-		
+		mirrorImage(tree.root);
+		TreeImplementation.treeTraverse(tree.root);
 	}
 
 }
