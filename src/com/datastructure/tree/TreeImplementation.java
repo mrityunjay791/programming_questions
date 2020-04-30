@@ -152,6 +152,24 @@ public class TreeImplementation {
 		
 	}
 	
+	/**
+	 * Used for printing leaf node.
+	 * 
+	 * @param root
+	 */
+	public static void printLeaves(TreeNode root) {
+
+		if (root == null) {
+			return;
+		}
+
+		if(root.left == null && root.right == null) {
+			System.out.print(root.data + " ");
+		}
+		printLeaves(root.left);
+		printLeaves(root.right);
+
+	}
 
 
 	public static void main(String[] args) {
@@ -176,6 +194,8 @@ public class TreeImplementation {
 		insertNode(tree.root, 50);
 		deleteNode(tree.root, 45);
 		treeTraverse(tree.root);
+		System.out.println("\nLeaf nodes: ");
+		printLeaves(tree.root);
 		
 //		System.out.println("\n" + tree.root.left.left.left.data);
 	}
