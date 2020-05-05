@@ -172,7 +172,11 @@ public class TreeTraversal {
 
 	
 	
-	
+	/**
+	 * Main stating point.
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		TreeTraversal tree = new TreeTraversal();
 		tree.root = new TreeNode(1);
