@@ -142,7 +142,7 @@ public class LevelOrderTraversal {
 		int height = findHeight(tree.root);
 		System.out.println("Height: " + height);
 		TreeImplementation.treeTraverse(tree.root);
-		System.out.println();
+		System.out.println("\nLabel by label: ");
 		printLevelByLevel(tree.root);
 		System.out.println();
 		printNodesByUsingQueue(tree.root);

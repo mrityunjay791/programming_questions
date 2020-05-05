@@ -6,11 +6,12 @@ package com.datastructure.tree;
  * @author mrityunjaykumar
  *
  */
-public class PrintLeftBoundaryNodes {
+public class TreeTraversal {
 	public static int maxL = 0;
+	public static int nthCount = 0;
 	TreeNode root;
 	
-	public PrintLeftBoundaryNodes() {
+	public TreeTraversal() {
 		root = null;
 	}
 
@@ -150,8 +151,30 @@ public class PrintLeftBoundaryNodes {
 		
 	}
 	
+	/**
+	 * Print Nth node of in-order traversal.
+	 * 
+	 * @param root
+	 * @param n
+	 */
+	public static void findNthNodeInInorderTraversal(TreeNode root, int n) {
+		if(root == null) {
+			return;
+		}
+		findNthNodeInInorderTraversal(root.left, n);
+		nthCount++;
+		if(nthCount == n) {
+			System.out.println("\nresult: "+root.data);
+		}
+		findNthNodeInInorderTraversal(root.right, n);
+		
+	}
+
+	
+	
+	
 	public static void main(String[] args) {
-		PrintLeftBoundaryNodes tree = new PrintLeftBoundaryNodes();
+		TreeTraversal tree = new TreeTraversal();
 		tree.root = new TreeNode(1);
 		tree.root.left = new TreeNode(2);
 		tree.root.right = new TreeNode(3);
@@ -164,6 +187,9 @@ public class PrintLeftBoundaryNodes {
 		printLeftBoudaryNodes(tree.root);
 		System.out.println();
 		printLeftView(tree.root, 1);
+		System.out.println();
+		inOderTravsersal(tree.root);
+		findNthNodeInInorderTraversal(tree.root, 7);
 		
 	}
 
