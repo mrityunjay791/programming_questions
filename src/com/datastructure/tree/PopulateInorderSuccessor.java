@@ -101,11 +101,12 @@ public class PopulateInorderSuccessor {
 		TreeNodeWithExtraPointer temp = root;
 		while(temp != null) {
 			int nextData =  (temp.next != null) ? temp.next.data : -1;
+//			if(nextData == 1)
 			System.out.println("Next Of "+ temp.data + " is " + nextData);
 			temp = temp.next;
 		}
 	}
-
+	
 	/**
 	 * Main method.
 	 * 
