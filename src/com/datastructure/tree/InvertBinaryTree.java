@@ -36,6 +36,7 @@ class TreeNodeEx {
 public class InvertBinaryTree {
 
 	TreeNodeEx root;
+	static int leafCount = 0;
 	
 	InvertBinaryTree() {
 		root = null;
@@ -69,6 +70,22 @@ public class InvertBinaryTree {
 		
 		
 	}
+ 
+ 
+ 	public static int countLeafNode(TreeNodeEx root) {
+ 		if(root == null) {
+ 			return 0;
+ 		}
+ 		
+ 		if(root.left == null && root.right == null) {
+ 			return 1;
+ 		}
+ 		
+ 		return countLeafNode(root.left) + 
+ 		countLeafNode(root.right);
+ 		
+ 		
+ 	}
 	
 	
 	public static void main(String[] args) {
@@ -80,11 +97,14 @@ public class InvertBinaryTree {
 		tree.root.left.left = new TreeNodeEx('d');
 		tree.root.left.right = new TreeNodeEx('e');
 		tree.root.right.left = new TreeNodeEx('f');
+		tree.root.right.right = new TreeNodeEx('g');
 		
 		treeTraverse(tree.root);
 		System.out.println("\nAfter inversion: ");
 		invertTree(tree.root);
 		treeTraverse(tree.root);
+		
+		System.out.println("\nTotal number of leaf nodes: "+ countLeafNode(tree.root));
 	}
 
 

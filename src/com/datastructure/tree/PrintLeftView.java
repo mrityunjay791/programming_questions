@@ -41,6 +41,7 @@ public class PrintLeftView {
 		tree.root.right.left.left = new TreeNode(6);
 		tree.root.right.left.right = new TreeNode(7);
 		tree.root.right.left.right.left = new TreeNode(17);
+		
 		printLeftView(tree.root, 1);
 	}
 
