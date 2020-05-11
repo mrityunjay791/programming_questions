@@ -147,9 +147,7 @@ public class LevelOrderTraversalInSpiralForm {
 		Stack<TreeNode> st2 = new Stack<>();
 		
 		st1.push(root);
-		
 		while(!st1.isEmpty() || !st2.isEmpty()) {
-						
 			while(!st1.empty()) {
 				TreeNode node = st1.peek();
 				st1.pop();
@@ -163,8 +161,7 @@ public class LevelOrderTraversalInSpiralForm {
 					st2.push(node.left);
 				}
 			}
-			
-			System.out.println();
+						
 			while(!st2.empty()) {
 				TreeNode node = st2.peek();
 				st2.pop();

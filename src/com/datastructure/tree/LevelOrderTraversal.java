@@ -12,6 +12,7 @@ import java.util.Queue;
 public class LevelOrderTraversal {
 
 	TreeNode root;
+	static int leafNodeCount = 0;
 
 	LevelOrderTraversal() {
 		root = null;
@@ -120,6 +121,10 @@ public class LevelOrderTraversal {
 			if (node != null) {
 				System.out.print(node.data + " ");
 			}
+			
+			if(node.left == null && node.right == null) {
+				leafNodeCount++;
+			}
 			if (node.left != null) {
 				q.add(node.left);
 			}
@@ -148,6 +153,7 @@ public class LevelOrderTraversal {
 		printNodesByUsingQueue(tree.root);
 		System.out.println();
 		printNodeByLevel(tree.root, 3);
+		System.out.println("\nNo of leaf node: "+ leafNodeCount);
 
 	}
 
