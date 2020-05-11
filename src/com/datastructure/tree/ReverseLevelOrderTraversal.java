@@ -161,10 +161,11 @@ public class ReverseLevelOrderTraversal {
 		insertNode(tree.root, 3);
 		insertNode(tree.root, 4);
 		insertNode(tree.root, 5);
-//		insertNode(tree.root, 6);
-//		insertNode(tree.root, 7);
-//		insertNode(tree.root, 8);
-//		insertNode(tree.root, 9);
+		insertNode(tree.root, 6);
+		insertNode(tree.root, 7);
+		insertNode(tree.root, 8);
+		insertNode(tree.root, 9);
+		
 		System.out.println("Reverse level order bttom to top Using recursive: ");
 		reverseLevelOrder(tree.root);
 		
