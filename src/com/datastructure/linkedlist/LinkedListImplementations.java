@@ -99,32 +99,42 @@ public class LinkedListImplementations {
 	}
 	
 	
-	public static void modifyList(Node tempHead, int count, int len) {
-		if(tempHead == null) {
-			return;
+	
+	/**
+	 * Finding length of the list using iterative method.
+	 * 
+	 * @return count
+	 */
+	public static int findLengthIterative() {
+		if(head == null) {
+			return 0;
 		}
 		
-		modifyList(tempHead.next,count - 1,len);
-		System.out.println(tempHead.data + " => "+ count);
-		if(count <= len/2) {
-			
-			updateValue(tempHead, count);
+		Node temp = head;
+		int count = 0;
+		while(temp != null) {
+			count++;
+			temp = temp.next;
 		}
 		
+		return count;
 	}
 	
-	private static void updateValue(Node temp, int pos) {
-		Node tempHead = head;
-		Node curr = null;
-		if(pos == 1) {
-			tempHead.data = temp.data - head.data;
-			curr = tempHead.next;
-			return;
+	/**
+	 * Finding length of the list using recursive method.
+	 * 
+	 * @param head
+	 * @return
+	 */
+	public static int findLengthRecursive(Node head) {
+		if(head == null) {
+			return 0;
 		}
 		
-		curr.data = temp.data - curr.data;
-		curr = curr.next;
+		return 1 + findLengthRecursive(head.next);
 	}
+	
+	
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -136,13 +146,19 @@ public class LinkedListImplementations {
 		}
 		
 		showList();
-		modifyList(head, n, n);
 //		removeElement(56);
 //		reverseList();
 		System.out.println();
 		showList();
 //		createList(sc.nextInt());
 //		showList();
+		
+		int len = findLengthIterative();
+		System.out.println("\nLength of the list : "+ len);
+		
+		int lenUsingRecursive = findLengthRecursive(head);
+		System.out.println("Length of the list using recursive: "+ lenUsingRecursive);
+		
 		sc.close();
 	}
 
