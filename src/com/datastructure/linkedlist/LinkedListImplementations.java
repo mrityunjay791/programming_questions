@@ -134,6 +134,33 @@ public class LinkedListImplementations {
 		return 1 + findLengthRecursive(head.next);
 	}
 	
+	/**
+	 * Find N-th node.
+	 * 
+	 * @param n
+	 */
+	public static void getNthNode(int n) {
+		if(head == null) {
+			System.out.println("Empty list: ");
+			return;
+		}
+		if(n == 0) {
+			System.out.println(n+"-th node is: "+ head.data);
+			return;
+		}
+		Node temp = head;
+		int count = 0;
+		while(temp != null) {
+			
+			if(count == n) {
+				System.out.println(n+"-th node is: "+ temp.data);
+				break;
+			}
+			count++;
+			temp = temp.next;
+		}
+		
+	}
 	
 
 	public static void main(String[] args) {
@@ -159,6 +186,7 @@ public class LinkedListImplementations {
 		int lenUsingRecursive = findLengthRecursive(head);
 		System.out.println("Length of the list using recursive: "+ lenUsingRecursive);
 		
+		getNthNode(3);
 		sc.close();
 	}
 
