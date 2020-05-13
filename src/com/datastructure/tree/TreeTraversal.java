@@ -185,15 +185,19 @@ public class TreeTraversal {
 		tree.root.left.left = new TreeNode(4);
 		tree.root.left.right = new TreeNode(5);
 		tree.root.right.left = new TreeNode(6);
-		tree.root.right.left.left = new TreeNode(10);
+//		tree.root.right.left.left = new TreeNode(10);
 		tree.root.right.right = new TreeNode(7);
 	
+		System.out.println("Print left bounday nodes: ");
 		printLeftBoudaryNodes(tree.root);
 		System.out.println();
 		printLeftView(tree.root, 1);
 		System.out.println();
 		inOderTravsersal(tree.root);
 		findNthNodeInInorderTraversal(tree.root, 7);
+		
+		System.out.println("Print boundary nodes: ");
+		printOnlyBoundaryNodes(tree.root);
 		
 	}
 
