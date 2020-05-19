@@ -2,6 +2,8 @@ package com.datastructure.linkedlist;
 
 public class DeleteNNodesAfterMNode {
 	static Node head;
+	static Node tHead;
+	static int noOfNodesToBeSwapped;
 
 	/**
 	 * Add node.
@@ -73,6 +75,19 @@ public class DeleteNNodesAfterMNode {
 		
 	}
 	
+	public static void swapMNodes(Node node, int m) {
+		if(node == null)
+			return;
+		 swapMNodes(node.next, m - 1);
+		 if(m <= noOfNodesToBeSwapped) {
+			 int temp = tHead.data;
+			 tHead.data = node.data;
+			 node.data = temp;
+			 tHead = tHead.next;
+		 }
+		 
+	}
+	
 	public static void main(String[] args) {
 		addNode(1);
 		addNode(2);
@@ -92,6 +107,13 @@ public class DeleteNNodesAfterMNode {
 		
 		System.out.println("\nAfter modification: ");
 		deleteNNodeAfterMNode(m, n);
+		printNode();
+		
+		noOfNodesToBeSwapped = 2;
+		tHead = head;
+		System.out.println();
+		swapMNodes(head, 7);
+		System.out.println();
 		printNode();
 	}
 
