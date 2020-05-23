@@ -109,7 +109,7 @@ public class DeleteNNodesAfterMNode {
 		deleteNNodeAfterMNode(m, n);
 		printNode();
 		
-		noOfNodesToBeSwapped = 2;
+		noOfNodesToBeSwapped = 7;
 		tHead = head;
 		System.out.println();
 		swapMNodes(head, 7);
