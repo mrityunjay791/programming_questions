@@ -1,35 +1,35 @@
-package com.datastructure.tree;
+package com.datastructure.tree.binarytree;
 
 /**
- * Program to find N-th node of pre order traversal.
+ * Program to find N-th node of post order traversal.
  * 
  * @author mrityunjaykumar
  *
  */
-public class FindNthNodeOfPreorderTraversal {
+public class FindNthNodeOfPostorderTraversal {
 	
 	TreeNode root;
 	static int count = 0;
 
-	public FindNthNodeOfPreorderTraversal() {
+	public FindNthNodeOfPostorderTraversal() {
 		root = null;
 	}
 
-	public static void findNthNodeOfPreOrderTraversal(TreeNode root, int n) {
+	public static void findNthNodeOfPostOrderTraversal(TreeNode root, int n) {
 		if(root == null) {
 			return;
 		}
+		findNthNodeOfPostOrderTraversal(root.left, n);
+		findNthNodeOfPostOrderTraversal(root.right, n);
 		count++;
 		if(count == n) {
 			System.out.println("Data at "+n +" position is "+root.data);
 		}
-		findNthNodeOfPreOrderTraversal(root.left, n);
-		findNthNodeOfPreOrderTraversal(root.right, n);
 		
 	}
 	
 	public static void main(String[] args) {
-		FindNthNodeOfPreorderTraversal tree = new FindNthNodeOfPreorderTraversal();
+		FindNthNodeOfPostorderTraversal tree = new FindNthNodeOfPostorderTraversal();
 		tree.root = new TreeNode(4);
 		tree.root.left = new TreeNode(5);
 		tree.root.right = new TreeNode(2);
@@ -39,9 +39,9 @@ public class FindNthNodeOfPreorderTraversal {
 		tree.root.right.left.right = new TreeNode(7);
 		tree.root.right.left.right.left = new TreeNode(17);
 		
-		TreeTraversal.preOrderTravsersal(tree.root);
+		TreeTraversal.postOrderTravsersal(tree.root);
 		System.out.println();
-		findNthNodeOfPreOrderTraversal(tree.root, 3);
+		findNthNodeOfPostOrderTraversal(tree.root, 3);
 	}
 
 }

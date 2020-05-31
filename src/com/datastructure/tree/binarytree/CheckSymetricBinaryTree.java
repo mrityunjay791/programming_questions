@@ -1,4 +1,4 @@
-package com.datastructure.tree;
+package com.datastructure.tree.binarytree;
 
 /**
  * Check symmetricity of a binary tree.

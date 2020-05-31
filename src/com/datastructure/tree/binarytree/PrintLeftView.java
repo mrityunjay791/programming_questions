@@ -1,4 +1,4 @@
-package com.datastructure.tree;
+package com.datastructure.tree.binarytree;
 
 /**
  * Program to print left view node.

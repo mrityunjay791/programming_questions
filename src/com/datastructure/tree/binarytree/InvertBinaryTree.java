@@ -1,4 +1,4 @@
-package com.datastructure.tree;
+package com.datastructure.tree.binarytree;
 
 class TreeNodeEx {
 	char data;

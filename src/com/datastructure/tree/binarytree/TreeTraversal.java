@@ -1,4 +1,4 @@
-package com.datastructure.tree;
+package com.datastructure.tree.binarytree;
 
 /**
  * This class is used for printing nodes by using various methods.
