@@ -28,6 +28,7 @@ public class ConstructBSTFromGivenPreorderTraversal {
 	 * @param low
 	 * @param high
 	 * @param size
+	 * 
 	 * @return
 	 */
 	public static TreeNode constructBSTFromPreorder(int arr[], Index index, int low, int high, int size) {
@@ -37,7 +38,7 @@ public class ConstructBSTFromGivenPreorderTraversal {
 		}
 		
 		TreeNode root = new TreeNode(arr[index.index]);
-		index.index = index.index + 1;;
+		index.index = index.index + 1;
 		
 		if(low == high) {
 			return root;
@@ -61,10 +62,58 @@ public class ConstructBSTFromGivenPreorderTraversal {
 	 * 
 	 * @param arr
 	 * @param size
+	 * 
 	 * @return
 	 */
 	public static TreeNode constructBSTFromPreorderUtil(int arr[], int size) {
 		return constructBSTFromPreorder(arr, indexObj ,0, size - 1, size);
+	}
+	
+	
+	/**
+	 * Constructing tree from preorder traversal with O(n) complexity.
+	 * 
+	 * @param arr
+	 * @param index
+	 * @param low
+	 * @param high
+	 * @param size
+	 * 
+	 * @return
+	 */
+	public static TreeNode constructBSTFromPreorderMethod2(int arr[], Index index,int key, int min, int max, int size) {
+		
+		if(index.index >= size) {
+			return null;
+		}
+		
+		TreeNode root = null;
+		
+		if(key > min && key < max) {
+			root = new TreeNode(key);
+			index.index = index.index + 1;
+			if (index.index < size) {
+				root.left = constructBSTFromPreorderMethod2(arr, index, arr[index.index], min, key, size);
+				root.right = constructBSTFromPreorderMethod2(arr, index, arr[index.index], key, max, size);
+			}
+			
+		}
+		
+		return root;
+	}
+	
+	
+	/**
+	 * Utility method to construct BST from preorder with O(n) complexity.
+	 * 
+	 * @param arr
+	 * @param size
+	 * 
+	 * @return
+	 */
+	public static TreeNode constructBSTFromPreorderUtilMethod2(int arr[], int size) {
+		
+		return constructBSTFromPreorderMethod2(arr, indexObj ,arr[0], Integer.MIN_VALUE, Integer.MAX_VALUE, size);
 	}
 	
 	/**
@@ -89,9 +138,16 @@ public class ConstructBSTFromGivenPreorderTraversal {
 	 */
 	public static void main(String[] args) {
 		int arr[] = new int[]{10, 5, 1, 7, 40, 50};
+		
 		TreeNode root = constructBSTFromPreorderUtil(arr, arr.length);
+		
+		indexObj.index = 0;
+		TreeNode root2 = constructBSTFromPreorderUtilMethod2(arr, arr.length);
+		
 		System.out.println("Inorder Traversal");
 		printInorder(root);
+		System.out.println("\nInorder Traversal with O(n)");
+		printInorder(root2);
 	}
 
 }
