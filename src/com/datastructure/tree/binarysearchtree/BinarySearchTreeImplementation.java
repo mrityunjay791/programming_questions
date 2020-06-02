@@ -54,6 +54,26 @@ public class BinarySearchTreeImplementation {
 	}
 	
 	/**
+	 * Method to search node in binary search tree.
+	 * 
+	 * @param root
+	 * @param key
+	 * @return
+	 */
+	public static TreeNode searchNode(TreeNode root, int key) {
+		if(root == null || root.data == key) {
+			return root;
+		}
+		
+		if(key < root.data) {
+			return searchNode(root.left, key);
+		}
+		
+		return searchNode(root.right, key);
+		
+	}
+
+	/**
 	 * Printing data.
 	 * 
 	 * @param root
@@ -81,6 +101,13 @@ public class BinarySearchTreeImplementation {
         tree.insert(80);
         
         tree.printData(root);
+        
+        TreeNode node = searchNode(root, 60);
+        if(node != null) {
+        	System.out.println("\nFound......");
+        } else {
+        	System.out.println("\nNot found");
+        }
 	}
 
 }
