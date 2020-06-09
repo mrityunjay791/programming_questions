@@ -89,6 +89,28 @@ public class BinarySearchTreeImplementation {
 		
 	}
 	
+	/**
+	 * Finding dead node.
+	 * 
+	 * @param root
+	 * @param low
+	 * @param high
+	 * @return
+	 */
+	public boolean isDeadNode(TreeNode root, int low, int high) { 
+	    if (root==null) {
+	    	return false; 
+	    }
+	        
+	    if (low == high) {
+	    	 return true; 
+	    }
+	       
+	    return isDeadNode(root.left, low, root.data - 1)|| 
+	    		isDeadNode(root.right, root.data + 1, high); 
+	}
+	
+	
 	
 	public static void main(String[] args) {
 		BinarySearchTreeImplementation tree = new BinarySearchTreeImplementation();
@@ -99,6 +121,7 @@ public class BinarySearchTreeImplementation {
         tree.insert(70); 
         tree.insert(60); 
         tree.insert(80);
+
         
         tree.printData(root);
         
@@ -107,6 +130,12 @@ public class BinarySearchTreeImplementation {
         	System.out.println("\nFound......");
         } else {
         	System.out.println("\nNot found");
+        }
+        
+        if(tree.isDeadNode(root, 1, Integer.MAX_VALUE)) {
+        	System.out.println("True");
+        } else {
+        	System.out.println("False");
         }
 	}
 
