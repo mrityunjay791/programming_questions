@@ -9,9 +9,7 @@ public class AddTwoNumberWithoutUsingArithOperator {
 		
 		while(num2 > 0) {
 			int carry = num1 & num2;
-			
 			num1 = num1 ^ num2;
-			
 			num2 = carry << 1;
 		}
 		
@@ -26,6 +24,7 @@ public class AddTwoNumberWithoutUsingArithOperator {
 		
 		int sum = addTwoNumber(n1, n2);
 		System.out.println(sum);
+		 System.out.format("%s", sum);
 		sc.close();
 	}
 
