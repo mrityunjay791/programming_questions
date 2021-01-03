@@ -17,6 +17,7 @@ public class Fibonacci2 {
 		Fibonacci2 f = new Fibonacci2();
 		int n = 9;
 		System.out.println("Fibonacci number is" + " " + f.fib(n));
+		
 	}
 
 }
